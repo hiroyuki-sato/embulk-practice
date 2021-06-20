@@ -1,10 +1,11 @@
 package embulk.practice.spi;
 
-import org.embulk.EmbulkTestRuntime;
-import org.embulk.config.ConfigException;
+//import org.embulk.EmbulkTestRuntime;
+//import org.embulk.config.ConfigException;
 import org.embulk.config.ConfigLoader;
 import org.embulk.config.ConfigSource;
 import org.embulk.spi.ExecInternal;
+import org.embulk.test.TestingEmbulk;
 import org.embulk.util.config.Config;
 import org.embulk.util.config.ConfigDefault;
 import org.embulk.util.config.ConfigMapper;
@@ -19,7 +20,8 @@ import static org.junit.Assert.assertTrue;
 public class SpiTest
 {
     @Rule
-    public EmbulkTestRuntime runtime = new EmbulkTestRuntime();
+    //public EmbulkTestRuntime runtime = new EmbulkTestRuntime();
+    public TestingEmbulk runtime = TestingEmbulk.builder().build();
 
     private static final ConfigMapperFactory CONFIG_MAPPER_FACTORY = ConfigMapperFactory
             .builder()
@@ -34,7 +36,7 @@ public class SpiTest
         @Deprecated
         public String getOption1();
     }
-
+/*
     @Test
     public void basicSPITest() {
 
@@ -50,6 +52,7 @@ public class SpiTest
 System.out.println("****************");
         assertTrue("hogehoge", true);
     }
+*/
 
     public ConfigSource configFromYamlString(String... lines)
     {
